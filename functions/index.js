@@ -4,7 +4,7 @@ const algoliasearch = require('algoliasearch');
 
 admin.initializeApp();
 
-const algoliaClient = algoliasearch('CJQI1GSDF6', '23df10b43136c09b11a1e4979d7972a5');
+const algoliaClient = algoliasearch('CJQI1GSDF6', functions.config().algolia.admin_key);
 const algoliaIndex = algoliaClient.initIndex('accounts');
 
 exports.indexPost = functions.firestore.document('accounts/{accountId}').onCreate(async (snap, context) => {
